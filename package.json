@@ -1,0 +1,35 @@
+{
+  "name": "7mit-tutorial",
+  "version": "1.0.0",
+  "private": true,
+  "description": "tutorial.7mit — Pusat Bantuan dan platform belajar interaktif ekosistem digital 7 MIT",
+  "scripts": {
+    "dev": "next dev",
+    "snapshot": "node scripts/snapshot.mjs",
+    "build": "node scripts/snapshot.mjs && next build",
+    "typecheck": "tsc --noEmit",
+    "seed:sql": "node scripts/seed-sql.mjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.8.1",
+    "@xyflow/react": "^12.12.1",
+    "lucide-react": "^1.71.0",
+    "minisearch": "^7.2.0",
+    "motion": "^14.12.0",
+    "next": "^15.5.29",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "recharts": "^3.10.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^3.4.19",
+    "tsx": "^4.23.15",
+    "typescript": "5.9"
+  }
+}
