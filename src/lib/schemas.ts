@@ -60,7 +60,7 @@ export type Block = z.infer<typeof Block>;
 export type BlockKind = Block['kind'];
 
 /** Jenis blok yang dihitung sebagai visual interaktif/animasi bermakna (syarat terbit). */
-export const VISUAL_KINDS: BlockKind[] = ['steps', 'flow', 'mock', 'diagram', 'chart', 'troubleshoot', 'scrolly', 'quiz', 'timeline'];
+export const VISUAL_KINDS: BlockKind[] = ['steps', 'flow', 'mock', 'diagram', 'chart', 'troubleshoot', 'scrolly', 'quiz'];
 export const hasVisual = (blocks: Block[]) => blocks.some((b) => VISUAL_KINDS.includes(b.kind));
 
 export const Service = z.object({

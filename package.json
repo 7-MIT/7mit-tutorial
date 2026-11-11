@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "snapshot": "node scripts/snapshot.mjs",
-    "build": "node scripts/snapshot.mjs && next build",
+    "build": "node scripts/snapshot.mjs && next build && node scripts/sitemap.mjs",
     "typecheck": "tsc --noEmit",
     "seed:sql": "node scripts/seed-sql.mjs"
   },

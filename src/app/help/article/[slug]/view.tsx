@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Check, Clock, Share2, ThumbsDown, ThumbsUp, TriangleAlert } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Bot, Check, Clock, Share2, ThumbsDown, ThumbsUp, TriangleAlert } from 'lucide-react';
 import { API, ANON } from '@/lib/content';
 import { useApp } from '@/lib/i18n';
 import { useSlug } from '@/lib/slug';
@@ -65,6 +65,7 @@ export default function View({ param }: { param: string }) {
         <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-muted">
           {svc && <Link href={`/services/${svc.slug}/`} className="inline-flex items-center gap-2 hover:text-ink">{svc.name}<StatusBadge status={svc.status} /></Link>}
           <span className="inline-flex items-center gap-1"><Clock size={14} aria-hidden />{a.minutes} {t('min')}</span>
+          <Link href={`/ai/?article=${a.slug}`} className="inline-flex items-center gap-1 hover:text-ink"><Bot size={14} aria-hidden />{lang === 'en' ? 'Ask AI about this' : 'Tanya AI tentang ini'}</Link>
           <span className={`rounded-full px-2 py-0.5 text-xs ${a.verified ? 'bg-success-soft text-success' : 'bg-warning-soft text-warning'}`}>{a.verified ? t('verified') : t('unverified')}</span>
           <button type="button" onClick={share} className="inline-flex items-center gap-1 hover:text-ink"><Share2 size={14} aria-hidden />{copied ? t('copied') : t('share')}</button>
         </div>
