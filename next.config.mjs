@@ -5,6 +5,7 @@ const nextConfig = {
   images: { unoptimized: true },
   reactStrictMode: true,
   typescript: { ignoreBuildErrors: false },
+  webpack: (config) => { config.resolve.alias = { ...config.resolve.alias, sharp: false, 'onnxruntime-node': false }; return config; },
   experimental: { optimizePackageImports: ['lucide-react', 'motion', 'recharts'] },
 };
 export default nextConfig;
