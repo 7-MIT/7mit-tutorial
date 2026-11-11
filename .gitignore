@@ -3,3 +3,4 @@ node_modules/
 .wrangler/
 *.tsbuildinfo
 next-env.d.ts
+out
