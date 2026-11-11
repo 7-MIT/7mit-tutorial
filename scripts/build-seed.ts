@@ -3,7 +3,9 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { z } from 'zod';
 import { Article, Category, Service } from '../src/lib/schemas';
 import { categories, services } from './content/services.mjs';
-import { articles } from './content/articles.mjs';
+import { articles as a1 } from './content/articles.mjs';
+import { articles2 } from './content/articles2.mjs';
+const articles = [...a1, ...articles2];
 import { articleToPayload, serviceToRow, categoryToRow } from '../shared/mapping';
 
 const cats = z.array(Category).parse(categories);
