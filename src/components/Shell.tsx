@@ -12,7 +12,7 @@ function Header() {
   return (
     <header className="sticky top-0 z-40 bg-surface/90 backdrop-blur border-b border-line" style={{ backgroundColor: 'color-mix(in srgb, var(--surface) 90%, transparent)' }}>
       <div className="mx-auto max-w-6xl flex items-center gap-1 sm:gap-3 px-3 sm:px-4 h-16">
-        <Link href="/" className="flex items-center gap-2 font-display text-lg text-brand shrink-0"><img src="/assets/logo-7mit.jpg" alt="7 MIT" height={28} className="h-7 w-auto rounded-sm" /><span className="hidden min-[430px]:inline">tutorial<span className="text-ink">.7mit</span></span></Link>
+        <Link href="/" className="flex items-center gap-2 font-display text-lg text-brand-ink shrink-0"><img src="/assets/logo-7mit.jpg" alt="7 MIT" height={28} className="h-7 w-auto rounded-sm" /><span className="hidden min-[430px]:inline">tutorial<span className="text-ink">.7mit</span></span></Link>
         <nav aria-label="Utama" className="hidden md:flex gap-1 ml-4">{nav.map(([h, l]) => <Link key={h} href={h} className="px-3 py-2 rounded-full text-sm text-muted hover:text-ink hover:bg-sunken">{l}</Link>)}</nav>
         <div className="flex-1" />
         <button type="button" onClick={() => setOpenSearch(true)} className="flex items-center gap-2 rounded-full border border-line bg-raised px-3 py-2 text-sm text-muted hover:text-ink" aria-label={t('search')}><Search size={16} aria-hidden /><span className="hidden sm:inline">{t('search')}</span><kbd className="hidden lg:inline text-xs border border-line rounded px-1">Ctrl K</kbd></button>

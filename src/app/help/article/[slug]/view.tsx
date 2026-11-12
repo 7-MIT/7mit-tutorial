@@ -72,8 +72,8 @@ export default function View({ param }: { param: string }) {
         <div className="mt-8"><Blocks blocks={a.blocks} /></div>
         <div className="mt-12"><Feedback slug={a.slug} /></div>
         <div className="mt-8 flex justify-between gap-4 text-sm">
-          {prev ? <Link href={`/help/article/${prev.slug}/`} className="inline-flex items-center gap-2 text-brand"><ArrowLeft size={16} aria-hidden />{tr(prev.title)}</Link> : <span />}
-          {next && <Link href={`/help/article/${next.slug}/`} className="inline-flex items-center gap-2 text-brand text-right">{tr(next.title)}<ArrowRight size={16} aria-hidden /></Link>}
+          {prev ? <Link href={`/help/article/${prev.slug}/`} className="inline-flex items-center gap-2 text-brand-ink"><ArrowLeft size={16} aria-hidden />{tr(prev.title)}</Link> : <span />}
+          {next && <Link href={`/help/article/${next.slug}/`} className="inline-flex items-center gap-2 text-brand-ink text-right">{tr(next.title)}<ArrowRight size={16} aria-hidden /></Link>}
         </div>
         {related.length > 0 && <section className="mt-12"><h2 className="font-display text-xl mb-3">{t('related')}</h2><div className="grid sm:grid-cols-3 gap-3">{related.map((r) => <ArticleCard key={r.slug} a={r} />)}</div></section>}
       </article>

@@ -95,18 +95,18 @@ function Inner() {
       {phase === 'loading' && <div><p>{L('Memuat model…', 'Loading model…')} {prog.total ? `${MB(prog.loaded)} / ${MB(prog.total)} MB` : ''}</p><div className="mt-2 h-2 rounded-full bg-sunken overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={prog.total ? Math.round((prog.loaded / prog.total) * 100) : 0}><div className="h-full bg-brand transition-all" style={{ width: `${prog.total ? (prog.loaded / prog.total) * 100 : 3}%` }} /></div></div>}
       {phase === 'ready' && <p className="text-success flex items-center gap-2"><Bot size={16} aria-hidden />{L('Model aktif (berjalan di perangkat ini).', 'Model active (running on this device).')}</p>}
       {(phase === 'unsupported' || phase === 'error') && <p className="flex gap-2 text-warning"><AlertTriangle size={16} className="shrink-0 mt-0.5" aria-hidden />{phase === 'unsupported' ? L('Peramban ini belum mendukung WebGPU, jadi model tidak bisa dijalankan. Pencarian artikel tetap berfungsi.', 'This browser does not support WebGPU, so the model cannot run. Article search still works.') : L('Model gagal dimuat. Pencarian artikel tetap berfungsi.', 'The model failed to load. Article search still works.')}</p>}
-      {pinnedArt && <p className="mt-2 text-muted">{L('Konteks artikel', 'Article context')}: <Link href={`/help/article/${pinnedArt.slug}/`} className="text-brand underline">{trx(pinnedArt.title, lang)}</Link></p>}
+      {pinnedArt && <p className="mt-2 text-muted">{L('Konteks artikel', 'Article context')}: <Link href={`/help/article/${pinnedArt.slug}/`} className="text-brand-ink underline">{trx(pinnedArt.title, lang)}</Link></p>}
     </div>
     <div className="grid gap-4 min-h-[40vh]" aria-live="polite">
       {msgs.length === 0 && <div className="flex flex-wrap gap-2">{suggestions.map((s) => <button key={s} type="button" onClick={() => ask(s)} className="rounded-full border border-line px-4 py-2 text-sm hover:bg-sunken">{s}</button>)}</div>}
       {msgs.map((m) => m.role === 'user' ? (
         <div key={m.id} className="flex justify-end gap-2"><p className="rounded-lg bg-brand text-on-brand px-4 py-2 max-w-[85%] whitespace-pre-wrap">{m.text}</p><User size={18} className="mt-2 text-muted" aria-hidden /></div>
       ) : (
-        <div key={m.id} className="flex gap-2"><Bot size={18} className="mt-2 text-brand shrink-0" aria-hidden />
+        <div key={m.id} className="flex gap-2"><Bot size={18} className="mt-2 text-brand-ink shrink-0" aria-hidden />
           <div className="min-w-0 flex-1 grid gap-3">
             <div className="rounded-lg border border-line bg-raised px-4 py-3 whitespace-pre-wrap">{m.text || (m.pending ? <span className="text-muted animate-pulse">{L('Berpikir…', 'Thinking…')}</span> : '')}</div>
             {m.res && m.res.components.map((c: AiComponent, i: number) => { const b = toBlock(c); return b ? <Blocks key={i} blocks={[b]} /> : null; })}
-            {m.res && m.res.sources.length > 0 && <p className="text-sm text-muted">{L('Sumber', 'Sources')}: {m.res.sources.map((s, i) => <span key={s.slug}>{i > 0 && ', '}<Link href={`/help/article/${s.slug}/`} className="text-brand underline">{s.title}</Link></span>)}</p>}
+            {m.res && m.res.sources.length > 0 && <p className="text-sm text-muted">{L('Sumber', 'Sources')}: {m.res.sources.map((s, i) => <span key={s.slug}>{i > 0 && ', '}<Link href={`/help/article/${s.slug}/`} className="text-brand-ink underline">{s.title}</Link></span>)}</p>}
             {m.res && !m.res.grounded && <p className="text-sm text-warning">{L('Tidak ada artikel yang cocok; jawaban ini tidak berdasarkan sumber.', 'No matching article; this answer is not grounded in a source.')}</p>}
             {m.mode === 'search' && !m.pending && <p className="text-xs text-muted">{L('Dijawab dari pencarian artikel (tanpa model).', 'Answered from article search (no model).')}</p>}
             {!m.pending && <div className="flex flex-wrap items-center gap-2 text-sm">
@@ -122,7 +122,7 @@ function Inner() {
       <label htmlFor="ai-q" className="sr-only">{t('ai')}</label>
       <input id="ai-q" value={input} onChange={(e) => setInput(e.target.value)} placeholder={L('Tanya tentang layanan 7 MIT…', 'Ask about 7 MIT services…')} className="flex-1 bg-transparent py-3 outline-none" autoComplete="off" />
       {msgs.length > 0 && <button type="button" onClick={clear} className="p-2 text-muted hover:text-ink" aria-label={L('Hapus riwayat', 'Clear history')}><Trash2 size={18} /></button>}
-      {busy && phase === 'ready' ? <button type="button" onClick={stop} className="p-2 text-brand" aria-label="Stop"><Square size={18} /></button> : <button type="submit" disabled={busy || !input.trim()} className="p-2 text-brand disabled:opacity-40" aria-label={L('Kirim', 'Send')}><Send size={18} /></button>}
+      {busy && phase === 'ready' ? <button type="button" onClick={stop} className="p-2 text-brand-ink" aria-label="Stop"><Square size={18} /></button> : <button type="submit" disabled={busy || !input.trim()} className="p-2 text-brand-ink disabled:opacity-40" aria-label={L('Kirim', 'Send')}><Send size={18} /></button>}
     </form>
   </>);
 }

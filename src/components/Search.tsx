@@ -11,14 +11,14 @@ export function useSearch() {
   return useMemo(() => buildIndex(bundle, lang), [bundle, lang]);
 }
 export function Marked({ text, terms }: { text: string; terms: string[] }) {
-  return <>{highlight(text, terms).map((p, i) => p.m ? <mark key={i} className="bg-blush text-ink rounded px-0.5">{p.t}</mark> : <span key={i}>{p.t}</span>)}</>;
+  return <>{highlight(text, terms).map((p, i) => p.m ? <mark key={i} className="bg-blush text-[#2a0a10] rounded px-0.5">{p.t}</mark> : <span key={i}>{p.t}</span>)}</>;
 }
 export function HitRow({ h, terms, onGo }: { h: Hit; terms: string[]; onGo?: () => void }) {
   const href = h.kind === 'article' ? `/help/article/${h.slug}/` : `/services/${h.slug}/`;
   const Icon = h.kind === 'article' ? FileText : Server;
   return (
     <Link href={href} onClick={onGo} className="flex gap-3 rounded-md p-3 hover:bg-sunken focus-visible:bg-sunken focus-visible:outline-2 focus-visible:outline-focus">
-      <Icon size={18} className="text-brand shrink-0 mt-1" aria-hidden />
+      <Icon size={18} className="text-brand-ink shrink-0 mt-1" aria-hidden />
       <span className="min-w-0"><span className="block font-medium text-ink"><Marked text={h.title} terms={terms} /></span><span className="block text-sm text-muted line-clamp-2"><Marked text={snippet(h.summary + ' ' + (h.text || ''), terms)} terms={terms} /></span></span>
     </Link>
   );

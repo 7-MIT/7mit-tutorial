@@ -18,7 +18,7 @@ export function ArticleCard({ a }: { a: Article }) {
   return (
     <Link href={`/help/article/${a.slug}/`} className="group rounded-lg border border-line bg-raised p-4 shadow-card hover:border-brand transition-colors flex flex-col gap-2">
       <div className="flex items-center gap-2 text-xs text-muted"><span>{svc?.name ?? a.service}</span>{!a.verified && <span className="rounded-full bg-sunken px-2 py-0.5">{t('draft')}</span>}</div>
-      <h3 className="font-display text-lg text-ink group-hover:text-brand">{tr(a.title)}</h3>
+      <h3 className="font-display text-lg text-ink group-hover:text-brand-ink">{tr(a.title)}</h3>
       <p className="text-sm text-muted line-clamp-2">{tr(a.summary)}</p>
       <p className="mt-auto flex items-center gap-1 text-xs text-muted"><Clock size={12} aria-hidden />{a.minutes} {t('min')}</p>
     </Link>

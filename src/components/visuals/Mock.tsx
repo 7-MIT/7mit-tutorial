@@ -17,7 +17,7 @@ export function Mock({ preset }: { preset: string }) {
       <div className="flex items-center gap-2 px-3 py-2 bg-sunken border-b border-line text-xs text-muted">
         <span className="flex gap-1" aria-hidden><i className="size-2.5 rounded-full bg-danger-fill" /><i className="size-2.5 rounded-full bg-gold" /><i className="size-2.5 rounded-full bg-success" /></span>
         <span className="flex-1 flex items-center gap-1 rounded-full bg-raised border border-line px-3 py-0.5 truncate"><Lock size={12} aria-hidden />{m.url}</span>
-        <span className="rounded-full bg-blush text-ink px-2 py-0.5 font-semibold tracking-wide">{t('demo').toUpperCase()}</span>
+        <span className="rounded-full bg-blush text-[#2a0a10] px-2 py-0.5 font-semibold tracking-wide">{t('demo').toUpperCase()}</span>
       </div>
       <div className="p-5 min-h-[260px]">
         <AnimatePresence mode="wait">

@@ -18,10 +18,10 @@ export function Troubleshoot({ b }: { b: T }) {
         {path.slice(0, -1).map((k, i) => { const n = b.nodes.find((x) => x.key === k)!; const chosen = n.answers.find((a) => a.to === path[i + 1]); return <li key={i} className="flex gap-2"><CircleCheck size={16} className="text-success shrink-0 mt-0.5" aria-hidden /><span>{tr(n.question)} → <b className="text-ink">{chosen ? tr(chosen.label) : ''}</b></span></li>; })}
       </ol>
       <div aria-live="polite" className={`rounded-md p-4 ${cur.result ? 'bg-success-soft' : 'bg-sunken'}`}>
-        {cur.question && <p className="flex gap-2 font-medium"><CircleHelp size={20} className="text-brand shrink-0" aria-hidden />{tr(cur.question)}</p>}
+        {cur.question && <p className="flex gap-2 font-medium"><CircleHelp size={20} className="text-brand-ink shrink-0" aria-hidden />{tr(cur.question)}</p>}
         {cur.result && <p className="text-success">{tr(cur.result)}</p>}
         {cur.question && <div className="mt-3 flex flex-wrap gap-2">{cur.answers.map((a, i) => <button key={i} type="button" onClick={() => setPath([...path, a.to])} className="rounded-full bg-brand text-on-brand px-4 py-2 text-sm hover:bg-brand-hover">{tr(a.label)}</button>)}</div>}
-        {cur.article && <Link href={`/help/article/${cur.article}/`} className="mt-3 inline-block text-brand underline">{t('related')} →</Link>}
+        {cur.article && <Link href={`/help/article/${cur.article}/`} className="mt-3 inline-block text-brand-ink underline">{t('related')} →</Link>}
       </div>
       <div className="mt-3 flex gap-2">
         <button type="button" disabled={path.length < 2} onClick={() => setPath(path.slice(0, -1))} className="inline-flex items-center gap-1 text-sm text-muted disabled:opacity-40 hover:text-ink"><Undo2 size={14} aria-hidden />{t('back')}</button>

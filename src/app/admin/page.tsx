@@ -67,7 +67,7 @@ function Editor({ data, art, onSaved, onClose }: { data: Data; art: Article; onS
         {!isNew && <button type="button" onClick={showRevs} className="inline-flex items-center gap-1 text-sm text-muted"><History size={14} />Revisi</button>}
         {!isNew && data.me.level === 'admin' && <button type="button" onClick={del} className="inline-flex items-center gap-1 text-sm text-danger"><Trash2 size={14} />Hapus</button>}</div>
       {msg && <p role="status" className={`rounded-md p-3 text-sm ${msg.ok ? 'bg-success-soft text-success' : 'bg-danger-soft text-danger'}`}>{msg.t}</p>}
-      {revs && <div className="rounded-lg border border-line p-3 text-sm grid gap-1"><b>Revisi</b>{revs.length === 0 && <p className="text-muted">Belum ada.</p>}{revs.map((r) => <div key={r.id} className="flex items-center gap-3"><span className="flex-1">v{r.version} · {new Date(r.saved_at).toLocaleString('id-ID')} · {r.saved_by}{r.note ? ` · ${r.note}` : ''}</span>{data.me.level === 'admin' && <button type="button" onClick={() => restore(r.id)} className="text-brand underline">Pulihkan</button>}</div>)}</div>}
+      {revs && <div className="rounded-lg border border-line p-3 text-sm grid gap-1"><b>Revisi</b>{revs.length === 0 && <p className="text-muted">Belum ada.</p>}{revs.map((r) => <div key={r.id} className="flex items-center gap-3"><span className="flex-1">v{r.version} · {new Date(r.saved_at).toLocaleString('id-ID')} · {r.saved_by}{r.note ? ` · ${r.note}` : ''}</span>{data.me.level === 'admin' && <button type="button" onClick={() => restore(r.id)} className="text-brand-ink underline">Pulihkan</button>}</div>)}</div>}
       <div className={`grid gap-6 ${prev ? 'xl:grid-cols-2' : ''}`}>
         <div className="grid gap-4 min-w-0">
           <div className="rounded-lg border border-line bg-raised p-4 grid gap-3">
@@ -107,7 +107,7 @@ function FeedbackTab() {
   useEffect(load, [load]);
   return (<div className="grid gap-2">{err && <p className="text-danger text-sm">{err}</p>}{fb.length === 0 && <p className="text-muted">Belum ada umpan balik.</p>}
     {fb.map((f) => <div key={f.id} className={`rounded-md border border-line p-3 text-sm flex gap-3 ${f.reviewed ? 'opacity-60' : ''}`}><span className={f.helpful ? 'text-success' : 'text-danger'}>{f.helpful ? '👍' : '👎'}</span><span className="flex-1"><b>{f.slug}</b> · {new Date(f.created_at).toLocaleString('id-ID')} · {f.lang}{f.comment && <span className="block mt-1">{f.comment}</span>}</span>
-      <button type="button" onClick={() => adminCall('feedback_review', { id: f.id, reviewed: !f.reviewed }).then(load)} className="text-brand underline">{f.reviewed ? 'Buka lagi' : 'Tandai dibaca'}</button></div>)}</div>);
+      <button type="button" onClick={() => adminCall('feedback_review', { id: f.id, reviewed: !f.reviewed }).then(load)} className="text-brand-ink underline">{f.reviewed ? 'Buka lagi' : 'Tandai dibaca'}</button></div>)}</div>);
 }
 
 export default function Admin() {
